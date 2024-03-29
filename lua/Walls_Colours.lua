@@ -62,10 +62,18 @@ local CollisionData = {
     ["31245608e2096b2a"] = true
 }
 
-_G.Drawing_Invis_Walls = not _G.Drawing_Invis_Walls
+local id = "INVIS_WALLS"
 _G.Invis_Walls = _G.Invis_Walls or {}
 local walls = _G.Invis_Walls
-local drawing = _G.Drawing_Invis_Walls
+
+_G.Drawing_Invis_Walls_Colored = not _G.Drawing_Invis_Walls_Colored
+local colours = _G.Drawing_Invis_Walls_Colored
+
+local lined = _G.Drawing_Invis_Walls_Lined
+if lined then --Stop Drawing
+    _G.Drawing_Invis_Walls_Lined = false
+    Hooks:Remove(id)
+end
 
 if #walls == 0 then
     for _, unit in pairs(World:find_units("all", 1)) do
@@ -78,5 +86,5 @@ end
 
 for i = 1, #walls do
     local unit = walls[i]
-    unit:set_visible(drawing and true or false)
+    unit:set_visible(colours and true or false)
 end

@@ -63,12 +63,22 @@ local CollisionData = {
 }
 
 local id = "INVIS_WALLS"
-_G.Drawing_Invis_Walls = not _G.Drawing_Invis_Walls
 _G.Invis_Walls = _G.Invis_Walls or {}
 local walls = _G.Invis_Walls
-local drawing = _G.Drawing_Invis_Walls
 
-if drawing then
+_G.Drawing_Invis_Walls_Lined = not _G.Drawing_Invis_Walls_Lined
+local lines = _G._G.Drawing_Invis_Walls_Lined
+
+local colours = _G.Drawing_Invis_Walls_Colored
+if colours then --Stop Drawing
+    _G.Drawing_Invis_Walls_Colored = false
+    for i = 1, #walls do
+        local unit = walls[i]
+        unit:set_visible(false)
+    end
+end
+
+if lines then
     if #walls == 0 then
         for _, unit in pairs(World:find_units("all", 1)) do
             if CollisionData[unit:name():key()] then
