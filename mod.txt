@@ -1,0 +1,30 @@
+{
+	"name" : "Invis Walls",
+	"description" : "Shows all the invisible walls",
+	"author" : "vojin154",
+	"contact" : "vojin154 (Discord)",
+	"version" : "1.0",
+	"blt_version" : 2,
+	"keybinds" : [
+        {
+		    "keybind_id" : "Walls_Colours",
+            "name" : "Coloured Invis Walls",
+            "description" : "Shows the invisible walls as colour.",
+            "script_path" : "lua/Walls_Colours.lua",
+            "run_in_menu" : false,
+            "run_in_game" : true,
+			"localized"   : false
+		},
+        {
+		    "keybind_id" : "Walls_Lines",
+            "name" : "Lined Invis Walls",
+            "description" : "Shows the invisible walls as lines.",
+            "script_path" : "lua/Walls_Lines.lua",
+            "run_in_menu" : false,
+            "run_in_game" : true,
+			"localized"   : false
+		}	
+    ]
+}
+	
+	
